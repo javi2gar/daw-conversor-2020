@@ -44,8 +44,7 @@ class Conversor
 
         $response = $client->request('GET', $URL);
         $monedaString = $response->getBody()->getContents();   // String
-        $monedaObjeto = json_decode($monedaString,true); // Array
-        return $monedaObjeto;
+        return json_decode($monedaString,true); // Array        
     }
 
 
