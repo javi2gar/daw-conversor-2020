@@ -46,7 +46,7 @@ try {
   </head>
   <body>
     <h1 class="text-center">daw-conversor-2020</h1>    
-    <p class="text-center">Versión 1.0.0</p>   
+    <p class="text-center">Versión 1.2.0</p>   
     - 
     <div class="container-sm d-flex justify-content-center">
         <form method="post" action="<?php $_SERVER["PHP_SELF"] ?>">

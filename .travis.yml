@@ -24,8 +24,8 @@ script:
   # the following command line builds the project, runs the tests with coverage and then execute the SonarCloud analysis
   - vendor/bin/sonar-scanner
 
-  - docker build -t vernedevelop/daw-conversor-2020:version1.0.0; .  
-  #- docker tag vernedevelop/daw-conversor-2020 vernedevelop/daw-conversor-2020:version1.0.0;
+  - docker build -t vernedevelop/daw-conversor-2020:version1.0.0 . 
+  #- docker tag vernedevelop/daw-conversor-2020 vernedevelop/daw-conversor-2020:version1.0.0 .
    
 deploy: 
 

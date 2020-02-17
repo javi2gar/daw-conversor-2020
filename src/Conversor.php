@@ -36,6 +36,18 @@ class Conversor
     public $dolar = 1.0835;
     public $yen = 119.05;
 
+
+    public function getMoneda()
+    {
+        $URL = 'https://api.exchangeratesapi.io/latest?base=EUR';
+        $client = new \GuzzleHttp\Client();
+        $response = $client->request('GET', $URL);
+        $monedaString = $response->getBody()->getContents();   // String
+        $monedaObjeto = json_decode($monedaString,true); // Array
+        return $monedaObjeto;
+    }
+
+
     public function eurosADolares($euro)
     {
         $this->euro= $euro;

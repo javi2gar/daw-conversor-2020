@@ -1,7 +1,7 @@
 {     
     "name": "vendor-javi2gar/daw-conversor-2020",
     "description": "Testing of web application deployment course - DevOps (CIP_DAW_DPL) !",
-    "version": "1.0.0",
+    "version": "1.2.0",
     "type": "test",
     "homepage": "http://www.vernedevelop.com",
     "time": "2020-02-17 18:00:00",
@@ -15,7 +15,8 @@
     }],
 
     "require": {
-        "php": "7.*"       
+        "php": "7.*",
+        "guzzlehttp/guzzle": "~6.0"       
     },
 
     "require-dev": {
