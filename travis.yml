@@ -1,0 +1,33 @@
+sudo: required
+language: php
+
+php:
+  - 7.2
+
+before_install:
+
+  # login to docker registries (dockerhub)
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+    
+before_script:
+  - composer self-update
+  - composer install --no-interaction --prefer-source --dev
+
+script:  
+
+  - docker build -t vernedevelop/daw-conversor-2020 .  
+  - docker tag daw-conversor-2020 vernedevelop/daw-conversor-2020:version0.1.0;
+   
+deploy: 
+
+  - provider: heroku
+    api_key: 
+      secure: "$HEROKU_API_KEY"
+    app: daw-conversor-2020  
+    
+  - provider: script
+    script:
+      # push to dockerhub
+      docker push vernedevelop/daw-conversor-2020;
+    on:
+      branch: master
