@@ -4,6 +4,12 @@ language: php
 php:
   - 7.2
 
+addons:
+  sonarcloud:
+    organization: "javi2gar"
+    token:
+      secure: "$SONAR_CLOUD_API_KEY" # encrypted value of your token
+
 before_install:
 
   # login to docker registries (dockerhub)
@@ -14,6 +20,9 @@ before_script:
   - composer install --no-interaction --prefer-source --dev
 
 script:  
+
+  # the following command line builds the project, runs the tests with coverage and then execute the SonarCloud analysis
+  - vendor/bin/sonar-scanner
 
   - docker build -t vernedevelop/daw-conversor-2020:version1.0.0; .  
   #- docker tag vernedevelop/daw-conversor-2020 vernedevelop/daw-conversor-2020:version1.0.0;
