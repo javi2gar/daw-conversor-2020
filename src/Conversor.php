@@ -34,11 +34,19 @@ namespace Src;
 class Conversor
 {    
     public $dolar = 1.0835;
+    public $yen = 119.05;
 
     public function eurosADolares($euro,$dolar)
     {
         $this->euro= $euro;
         $this->dolar= $dolar;
         return $dolar * $euro;
+    }
+
+    public function eurosAYenes($euro,$yen)
+    {
+        $this->euro= $euro;
+        $this->yen= $yen;
+        return $yen * $euro;
     }
 }
