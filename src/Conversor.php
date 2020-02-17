@@ -42,7 +42,6 @@ class Conversor
         $URL = 'https://api.exchangeratesapi.io/latest?base=EUR';
         $client = new \GuzzleHttp\Client();
 
-        
         $response = $client->request('GET', $URL);
         $monedaString = $response->getBody()->getContents();   // String
         $monedaObjeto = json_decode($monedaString,true); // Array
