@@ -12,7 +12,7 @@
   </head>
   <body>
     <h1 class="text-center">daw-conversor-2020</h1>    
-    <p class="text-center">Versión 0.1.0</p>    
+    <p class="text-center">Versión 0.2.0</p>    
 
     
     <!-- Optional JavaScript -->

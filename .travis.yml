@@ -16,7 +16,7 @@ before_script:
 script:  
 
   - docker build -t vernedevelop/daw-conversor-2020 .  
-  - docker tag daw-conversor-2020 vernedevelop/daw-conversor-2020:version0.1.0;
+  - docker tag daw-conversor-2020 vernedevelop/daw-conversor-2020:version0.2.0;
    
 deploy: 
 
