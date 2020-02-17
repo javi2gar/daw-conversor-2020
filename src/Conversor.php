@@ -36,17 +36,15 @@ class Conversor
     public $dolar = 1.0835;
     public $yen = 119.05;
 
-    public function eurosADolares($euro,$dolar)
+    public function eurosADolares($euro)
     {
         $this->euro= $euro;
-        $this->dolar= $dolar;
-        return $dolar * $euro;
+        return $this->dolar* $euro;
     }
 
-    public function eurosAYenes($euro,$yen)
+    public function eurosAYenes($euro)
     {
-        $this->euro= $euro;
-        $this->yen= $yen;
-        return $yen * $euro;
+        $this->euro= $euro;        
+        return $this->yen * $euro;
     }
 }

@@ -1,3 +1,37 @@
+<?php
+
+
+namespace Src ;
+
+require('../vendor/autoload.php');
+
+include_once 'Conversor.php';
+
+
+$conversor = new Conversor();
+$euro = 0;
+
+try {
+    if (isset($_POST['btnCalcular']) || !empty($_POST['btnCalcular'])) {
+        $num1 = $_POST["euros"];
+        $operacion = $_POST["opcion"];
+
+        switch ($operacion) {
+            case "dolar":
+                $resultado = $conversor->eurosADolares($euro);
+                break;
+            case "yen":
+                $resultado = $conversor->eurosAYenes($euro);
+                break;           
+            default:
+                $resultado = "ERR";
+        }
+    }
+} catch (Exception $e) {
+    $resultado = $e->getMessage();
+}
+?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -12,8 +46,49 @@
   </head>
   <body>
     <h1 class="text-center">daw-conversor-2020</h1>    
-    <p class="text-center">Versión 0.2.0</p>    
-
+    <p class="text-center">Versión 1.0.0</p>   
+    - 
+    <div class="container-sm d-flex justify-content-center">
+        <form method="post" action="<?php $_SERVER["PHP_SELF"] ?>">
+            <div class="form-row">
+                <div class="form-group">
+                    <div class="col px-md-6">
+                        <label class="text-center"for="euros">Cantidad: &nbsp</label>
+                        <input class="input-text" type="text" id="euros" name ="euros" aria-describedby="euros" required>
+                        <label id="eurosHelp" class="form-text text-muted text-center">(EUROS)</label>
+                    </div>
+                </div>                
+            </div>
+            <div class="container-sm d-flex justify-content-center">
+                <fieldset class="form-group">               
+                    <legend class="raw-form-label col-sm-2 pt-0">Moneda:</legend>
+                    <div class="raw-sm-10">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="opcion" id="dolar" value="dolar" checked>
+                            <label class="form-check-label" for="dolar">
+                            Dólares Americanos
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="opcion" id="yen" value="yen">
+                            <label class="form-check-label" for="yen">
+                            Yenes
+                        </label>                        
+                        </div>
+                    </div>             
+                </fieldset> 
+            </div>         
+            <br>
+            <div class="container-sm d-flex justify-content-center">
+                <button type="submit" class="btn btn-primary" name="btnCalcular">Calcular</button>
+            </div>           
+            <br>
+            <div class="container-sm d-flex justify-content-center">
+                <label class="text-center"for="resultado">Resultado &nbsp&nbsp</label>
+                <input class="input-text" type="text" id="resultado" aria-describedby="resultado" value="<?php echo $resultado ?>" >
+            </div>                      
+        </form>
+    </div>
     
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
